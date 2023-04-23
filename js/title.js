@@ -25,40 +25,15 @@ window.addEventListener('load', mover_titulo)
 **/
 
 /**********************************************
-**               OTRA VERSION                **
+**                 VERSION 2                 **
 **********************************************/
-// window.addEventListener('load', mover_titulo);
-
 const titulo = "The Z Warriors";
-let titulo_mutable = titulo;  
-document.title = titulo_mutable;
+let mutable = titulo;  
+document.title = mutable;
 
-function mover_titulo(){
-  const titleArray = titulo_mutable.split('');
-  if (titleArray.every(e => e === '.')) {
-    document.title = titulo_mutable = titulo;
-    return;
-  }
-
-  for (let i in titleArray) {
-    if ( titleArray[i] === '.' ) continue;
-    titleArray[i] = '.';
-    break;
-  }
-
-  document.title = titulo_mutable = titleArray.join('');
-};
-
-/**********************************************
- **                 VERSION 2                 **
- **********************************************/
-function mover_titulo2(){
-  if (!(titulo_mutable.match(/[a-z ]/i))) return document.title = titulo_mutable = titulo;
-  
-  const regex = /[a-z ]/i;
-  document.title = titulo_mutable = titulo_mutable.replace(regex, '.');
-}
-
+const mover_titulo2 = () => !mutable.match(/[a-z ]/i)
+  ? document.title = mutable = titulo
+  : document.title = mutable = mutable.replace(/[a-z ]/i, '.');
 /**********************************************
 **                Y...ACCIÓN                 **
 **********************************************/
